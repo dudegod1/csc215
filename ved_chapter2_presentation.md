@@ -50,7 +50,6 @@ Let's dive deep into each of these sections and explore how CP/M was a revolutio
 **Important Tools**:
 - **CP/M Editor (ED)**, **Assembler (ASM)**, **Loader (LOAD)**, and **Debugger (DDT)** help in writing and debugging programs that run within the TPA.
 
-![TPA Memory Layout](https://upload.wikimedia.org/wikipedia/commons/2/2c/CPM_memory_map.png)
 
 ---
 
