@@ -34,11 +34,12 @@ The answer is a **loader program**: a small program which pre-exists somewhere i
 
 Here is a diagram of those vectors:
 
-![Diagram of vectors](ch_5_image1.png)
+<img width="934" alt="ch_5_image1" src="https://github.com/user-attachments/assets/24e890fb-4690-4fc8-93a0-e9ef15e39a9b">
 
 And here is a table of them:
 
-![Table of vectors continued](ch_5_image2.png)
+<img width="439" alt="ch_5_image2" src="https://github.com/user-attachments/assets/708f034d-27ab-4b61-a46f-91252eff88a0">
+
 
 #### Booting vectors
 
@@ -119,7 +120,7 @@ To adapt CP/M to a new computer, all one must do is provide the loader in PROM a
 
 The following is a memory map for version 1.4 of CP/M:
 
-![CP/M v1.4 memory map](ch_5_image3.png)
+<img width="484" alt="ch_5_image3" src="https://github.com/user-attachments/assets/5d279c41-e6dd-4dd9-b733-00c32394e8cd">
 
 - CBIOS contains all the I/O drivers shown in the map above.
 
@@ -139,7 +140,7 @@ In the map above, IOBYT has not been implemented. However, if it is, it takes th
 
 This is shown in the diagram below:
 
-![IOBYT device selector diagram](ch_5_image4.png)
+<img width="481" alt="ch_5_image4" src="https://github.com/user-attachments/assets/f8da17a1-b7e3-413d-ba13-4cbfe8adb5fa">
 
 ### Device names
 
@@ -155,8 +156,6 @@ LST: = TTY: CRT: LPT: ULI:
 produced by the CP/M transient utility STAT.
 
 - This shows all of the logical device names used by CP/M along with the physical devices that connect to CP/M as those names.
-
-[Link to Ved's section of the presentation](https://github.com/dudegod1/csc215/blob/main/ved_chapter5_presentation.md)
 
 ## CCP——The Console Commmand Processor
 
@@ -178,7 +177,7 @@ produced by the CP/M transient utility STAT.
 
 Here is a table of the resident functions:
 
-![Table of all the resident functions of CP/M](ch_5_image5.png)
+<img width="436" alt="ch_5_image5" src="https://github.com/user-attachments/assets/fcbff88b-0636-4f2a-bfd7-cf62b7c5d6f5">
 
 - The most frequently used resident function is **DIR**, used to display files on your disk.
 
@@ -206,8 +205,6 @@ Here is a table of the resident functions:
 ### TYPE
 
 - The final resident command, TYPE, when given a specific filename, will type out the contents of the named file onto the console.
-
-[Link to Ved's section of the presentation (again)](https://github.com/dudegod1/csc215/blob/main/ved_chapter5_presentation.md)
 
 ## Transient Utilities
 
