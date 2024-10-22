@@ -122,6 +122,7 @@ To adapt CP/M to a new computer, all one must do is provide the loader in PROM a
 - Thus, the I/O system of CP/M can easily be customized, which is why it is called "custom."
 
 The following is a memory map for version 1.4 of CP/M:
+Addresses 0000H to 0002H: Jump to the WBOOT vector for a warm start. 0038H: IOBYT for I/O selection. Addresses starting at 0100H: Allocate space for the TPA. Addresses 2900H and above: Used for console commands (CCP), BDOS, and CBIOS for disk and I/O operations.
 
 <img width="484" alt="ch_5_image3" src="https://github.com/user-attachments/assets/5d279c41-e6dd-4dd9-b733-00c32394e8cd">
 
