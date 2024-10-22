@@ -39,6 +39,7 @@ Each vector points to a specific subroutine that handles tasks such as reading t
 <img width="934" alt="ch_5_image1" src="https://github.com/user-attachments/assets/24e890fb-4690-4fc8-93a0-e9ef15e39a9b">
 
 And here is a table of them:
+This table outlines key vectors in the CBIOS of CP/M. These vectors are memory addresses tied to specific routines for system functions. Each vector corresponds to a specific function CP/M uses to communicate with hardware.
 
 <img width="439" alt="ch_5_image2" src="https://github.com/user-attachments/assets/708f034d-27ab-4b61-a46f-91252eff88a0">
 
