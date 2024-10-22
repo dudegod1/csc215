@@ -181,10 +181,10 @@ produced by the CP/M transient utility STAT.
 - Resident functions can be executed instantaneously instead of being loaded into RAM from disk.
 
 Here is a table of the resident functions:
+These commands are always available in memory. Key commands include: ERA, DIR, REN, SAVE, TYPE.
+- The most frequently used resident function is **DIR**, used to display files on your disk.
 
 <img width="436" alt="ch_5_image5" src="https://github.com/user-attachments/assets/fcbff88b-0636-4f2a-bfd7-cf62b7c5d6f5">
-
-- The most frequently used resident function is **DIR**, used to display files on your disk.
 
 ### DIR
 
