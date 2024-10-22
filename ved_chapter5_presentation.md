@@ -33,7 +33,7 @@ The answer is a **loader program**: a small program which pre-exists somewhere i
 **An area within CP/M is also set aside for vectors that point to disk and I/O acess primitives.**
 
 Here is a diagram of those vectors:
-Explains how CP/M organizes and uses vectors to communicate with both I/O devices and the disk systsem 
+Explains how CP/M organizes and uses vectors to communicate with both I/O devices and the disk system 
 Each vector points to a specific subroutine that handles tasks such as reading the disk, interacting with printers, or managing user programs, ensuring that both hardware and software can work together seamlessly.
 
 <img width="934" alt="ch_5_image1" src="https://github.com/user-attachments/assets/24e890fb-4690-4fc8-93a0-e9ef15e39a9b">
