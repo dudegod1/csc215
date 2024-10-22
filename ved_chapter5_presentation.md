@@ -143,6 +143,7 @@ In the map above, IOBYT has not been implemented. However, if it is, it takes th
 - When a driver needs access to a device, it reads the IOBYT, isolates the specific bits for that logical device, and decodes them to find out which physical device is currently selected.
 
 This is shown in the diagram below:
+This represents the IOBYT configuration byte, which determines the mapping of logical devices to physical devices in a CP/M system. The eight bits of the IOBYT byte are divided into subfield that specify which physical devices to use for Console, Reader, Punch, and List. Each subfield represents a combination of device options, such as teletype, cathode ray tube, or line printer.
 
 <img width="481" alt="ch_5_image4" src="https://github.com/user-attachments/assets/f8da17a1-b7e3-413d-ba13-4cbfe8adb5fa">
 
