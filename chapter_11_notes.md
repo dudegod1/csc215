@@ -11,4 +11,8 @@
 - Enable understanding of:
     1. Writing code using ED editor
     2. Assembling programs into "executables"
-    3. Debugging and running programs in CP/M 
+    3. Debugging and running programs in CP/M
+
+## Programming Workflow:
+1. **Writing Code:**
+    - Use `ED` to create `.ASM` files 
