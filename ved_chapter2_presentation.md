@@ -28,7 +28,8 @@ Let's dive deep into each of these sections and explore how CP/M was a revolutio
 **Important Reminder:**
 - CP/M allows developers to write programs that are hardware-agnostic, meaning they run on any system with CP/M without requiring modification.
 
-![CP/M System Overview Diagram](https://upload.wikimedia.org/wikipedia/commons/6/63/CPM_diagram.png)
+![image](https://github.com/user-attachments/assets/fd0fef7e-1d54-4185-afc0-3c6517f0d22d)
+
 
 ---
 
@@ -49,7 +50,6 @@ Let's dive deep into each of these sections and explore how CP/M was a revolutio
 **Important Tools**:
 - **CP/M Editor (ED)**, **Assembler (ASM)**, **Loader (LOAD)**, and **Debugger (DDT)** help in writing and debugging programs that run within the TPA.
 
-![TPA Memory Layout](https://upload.wikimedia.org/wikipedia/commons/2/2c/CPM_memory_map.png)
 
 ---
 
