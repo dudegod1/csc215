@@ -36,3 +36,15 @@
     - Preserve all registers
     - Utilize BDOS calls for hardway independent operations
     - Provide a foundation for higher level I/O operations (e.g., line buffering)
+
+## CI: Console Input Subroutine:
+- **Steps:**
+    1. Save registers (`PUSH B`, `PUSH D`, `PUSH H`)
+    2. Load `RCONF` into `C` (BDOS read function)
+    3. Call BDOS
+    4. Mask the 8th bit using `ANI 7FH` to remove parity
+    5. Restore registers and return (`POP` operations)
+
+- **Reason for Masking:**
+    - ASCII characters only use 7 bits
+    - The 8th bit may represent parity, which can vary across devices
