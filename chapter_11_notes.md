@@ -42,10 +42,11 @@
     JMP 0
     END
     ```
+    - Use `CTRL I` (tab) for alignment in columns
+5. **Saving the File**
+    - Exit input mode with `CTRL Z`
+    - Save file with command: `E`
+    - Creates two files:
+        - `TEST.ASM`: This is the source code
+        - `TEST.BAK`: This is the backup copy
 
-## Programming Workflow:
-1. **Writing Code:**
-    - Use `ED` to create `.ASM` files
-    - Commands like `Control Z` for exiting input mode and `Control I` (Tab) for alignment
-2. **Assembling Code:**
- 
