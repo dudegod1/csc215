@@ -50,3 +50,25 @@
         - `TEST.ASM`: This is the source code
         - `TEST.BAK`: This is the backup copy
 
+## Editing and Debugging with ED:
+1. **Correcting Mistakes While Typing**
+    - USE `DEL` or `RUBOUT` to erase the last character
+    - The cursor doesn't move back but duplicates the character to indicate deletion
+
+2. **Correcting Mistales After Listing:**
+    - USE `B8T` to move the pointer to the start and display the file
+    - Replace errors with the substitue command:
+        - Exmmple: Replace `MIV` with `MVI`:
+            ```plaintext
+            SMIV^Z
+            MVI^Z
+            OLT
+            ```
+
+3. ** Reopening Files:**
+    - COmmand: `ED TEST.ASM`
+    - Append file into the buffer with `#A`
+
+4. **Quitting without Saving:**
+    - Command: `Q`
+    - Exits ED without writing changes to disk  
