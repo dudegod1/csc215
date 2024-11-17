@@ -120,4 +120,34 @@
 4. **Intel HEX Format:**
     - Used for `.HEX` files:
         - ASCII-based and portable between systems
-        - Includes checksum for error detection  
+        - Includes checksum for error detection 
+
+## Experimentation and Debugging:
+1. **Introducing Errors:**
+    - Change symbol definitions (e.g., `BDOS` and `WCONF`) to invalid values
+    - Observe assembler error messages and program behavior
+
+2. **Modifying Code:**
+    - Replace instructions like `JMP 0` with `RET` or `CALL BDOS`
+    - Example:
+    ```assembly
+    JMP BDOS
+    ```
+    - Observe how stack ops and memory contents affect output
+
+3. **Updating Programs:**
+    - Use `#A` to append existing files
+    - Restore files to working conditions after experimenting
+
+4. **Practical Exercises:**
+    - Test forward references by moving `EQU` definitions to the end of the file
+    - Try ORG'ing a program at a different address and observe errors
+
+## Key Takeaways:
+1. **learning by doing:**
+    - Practical exercises solidy understanding of CP/M tools and assembly programming
+
+2. **Efficient Programming Workflow:**
+    - Use ED for writing/editing source code
+    - Assemble programs with ASM for error checking and object file generation
+    - Load and execute programs using LOAD 
