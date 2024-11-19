@@ -40,3 +40,10 @@ CALL TWOCR ; Adds 2 blank lines
 CALL SPMSG ; Displays a message
 DB 'This is a test message', 0
 ```
+
+### Outpute:
+```assembly
+
+
+This is a test message
+```
