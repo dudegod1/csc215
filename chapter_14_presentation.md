@@ -40,10 +40,44 @@ CALL TWOCR ; Adds 2 blank lines
 CALL SPMSG ; Displays a message
 DB 'This is a test message', 0
 ```
+### Output:
+```assembly
+empty line
+empty line
+This is a test message
+```
+
+---
+
+## Section 2: SPMSG - Displays In-Line Messages
+
+### Now what is SPMSG?
+- It is a subroutine for displaying **in-line messages** directly in the program code
+- Eliminates need for pre defined message buffers
+
+### How does it work??
+1. Write `CALL SPMSG` followed by the message in the `DB` directive:
+```assembly
+CALL SPMSG
+DB 'Message to display', 0
+```
 
 ### Output:
 ```assembly
-<br>
-<br>
-This is a test message
+Message to display
 ```
+
+### Why does SPMSG make you life easier?
+```assembly
+LXI H, MSG ; Load address of MSG into HL
+CALL PRINT ; Print message subroutine
+...
+MSG: DB 'Message to display', 0
+```
+
+2. The subroutine fetches and outputs each character from memory until a zero byte is encountered
+
+### Benefits:
+1. Keeps messages close to the related program logic, improving code readability
+2. Removes need for manually defined message buffers
+3. Saves memory and reduces register usage         
