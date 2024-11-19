@@ -29,3 +29,14 @@ TWOCR: CALL CCRLF ; Call CCRLF (Carriage Return Line Feed)
     - The first `CCRCLF` creates a new line
     - The return from `CCRLF` calls upon another line feed
 
+### Benefits:
+1. Simplifies code by reducing repetitive calls
+2. Makes sure the double-spacing for messages are consistent
+3. Improves console outp[ute readability with little effort
+
+### Example:
+```assembly
+CALL TWOCR ; Adds 2 blank lines
+CALL SPMSG ; Displays a message
+DB 'This is a test message', 0
+```
