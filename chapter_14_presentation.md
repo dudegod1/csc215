@@ -41,9 +41,9 @@ CALL SPMSG ; Displays a message
 DB 'This is a test message', 0
 ```
 
-### Outpute:
+### Output:
 ```assembly
-
-
+<br>
+<br>
 This is a test message
 ```
