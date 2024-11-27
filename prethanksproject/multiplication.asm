@@ -78,3 +78,48 @@ COMSG:  MOV     A,M     ; Get a character
         CALL    CO      ; Else output the character
         INX     H       ; Point to the next character
         JMP     COMSG   ; Repeat
+
+; Multiplication Routine
+MULTIPLY:
+        MVI     D,00H   ; Clear high byte of result
+        MVI     E,00H   ; Clear low byte of result
+MLOOP:  MOV     A,C     ; Check multiplier (C)
+        CPI     00H     ; If multiplier is zero, we're done
+        JZ      MDONE
+
+        MOV     A,E     ; Add multiplicand (B) to result (E)
+        ADD     B
+        MOV     E,A     ; Store result low byte
+        JC      INCHIGH ; If carry, increment high byte
+
+        JMP     DECMULT ; Decrement multiplier
+
+INCHIGH:
+        INR     D       ; Increment high byte of result
+        JMP     DECMULT
+
+DECMULT:
+        DCR     C       ; Decrement multiplier
+        JMP     MLOOP
+
+MDONE:
+        RET
+
+; Display Result Routine - Fixed Version
+SHOWRES:
+        LXI     H,MSG3    ; Load the message pointer
+        CALL    COMSG     ; Display result message
+        
+        MOV     A,D       ; Move high byte of result to A
+        CPI     00H       ; Compare with 0
+        JZ      ONLYLOW   ; If high byte is zero, jump to only print low byte
+
+        CALL    HEXOUT    ; Output high byte if not zero
+        MVI     A,':'     ; Separator
+        CALL    CO
+
+ONLYLOW:
+        MOV     A,E       ; Low byte of result
+        CALL    HEXOUT    ; Output low byte
+        CALL    CCRLF     ; New line
+        RET
