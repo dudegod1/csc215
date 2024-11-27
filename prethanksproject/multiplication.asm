@@ -64,3 +64,17 @@ CO:     PUSH    B       ; Save registers
         POP     D
         POP     B
         RET
+
+; Carriage Return and Line Feed Routine
+CCRLF:  MVI     A,CR
+        CALL    CO
+        MVI     A,LF
+        JMP     CO
+
+; Print Message Pointed to by HL to Console
+COMSG:  MOV     A,M     ; Get a character
+        ORA     A       ; Check if zero
+        RZ              ; Return on zero
+        CALL    CO      ; Else output the character
+        INX     H       ; Point to the next character
+        JMP     COMSG   ; Repeat
