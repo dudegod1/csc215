@@ -34,3 +34,33 @@ START3: LXI     H,MSG2  ; MSG2 prompts for second number
         CALL    MULTIPLY ; MULTIPLY NUMBERS
         CALL    SHOWRES ; SHOW THE RESULT
         JMP     START2   ; RESTARTS PROGRAM
+
+; Messages
+SIGNON: DB      'Multiplication Program (CTRL + Z to Exit)',CR,LF,0
+MSG1:   DB      'Enter the first number (0-9): ',CR,LF,0
+MSG2:   DB      'Enter the second number (0-9): ',CR,LF,0
+MSG3:   DB      'The result is: ',CR,LF,0
+
+; Console Character Input Routine
+CI:     PUSH    B       ; Save registers
+        PUSH    D
+        PUSH    H
+        MVI     C,RCONIN ; Read function
+        CALL    BDOS
+        ANI     7FH      ; Mask to 7 bits
+        POP     H        ; Restore registers
+        POP     D
+        POP     B
+        RET
+
+; Console Output Character Routine
+CO:     PUSH    B       ; Save registers
+        PUSH    D
+        PUSH    H
+        MVI     C,WCONOUT ; Select function
+        MOV     E,A     ; Character to E
+        CALL    BDOS    ; Output by CP/M
+        POP     H       ; Restore registers
+        POP     D
+        POP     B
+        RET
