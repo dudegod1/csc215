@@ -123,3 +123,41 @@ ONLYLOW:
         CALL    HEXOUT    ; Output low byte
         CALL    CCRLF     ; New line
         RET
+
+; Convert a Number to Hexadecimal
+HEXOUT: ANI     0F0H    ; Mask high nibble
+        RRC             ; Shift right 4 bits
+        RRC
+        RRC
+        RRC
+        CALL    TOHEX   ; Convert to ASCII
+        CALL    CO      ; Output high nibble
+        MOV     A,E     ; Restore full byte
+        ANI     0FH     ; Mask low nibble
+        CALL    TOHEX   ; Convert to ASCII
+        CALL    CO      ; Output low nibble
+        RET
+
+; Convert Nibble to ASCII
+TOHEX:  ADI     30H   ; Add '0'
+        CPI     3AH     ; If > '9'
+        JC      TRET
+        ADD     7H    ; Convert to 'A'-'F'
+TRET:   RET
+
+; Get a Single Digit Number (ASCII to Binary)
+GETNUM: CALL    CI  
+        CPI     CTRLZ
+        JZ      RBOOT
+        SUI     '0'     ; Convert ASCII to binary
+        RET
+
+; Stack Setup
+        DS      64      
+STAK:   DB      0       
+
+; Memory for Result Buffer
+        DS      2       ; Space for high and low result bytes
+RESULT: DB      0
+
+        END
