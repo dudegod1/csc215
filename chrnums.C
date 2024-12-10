@@ -25,3 +25,12 @@ main(argc, argv)
                 printf("%d: %s\n", len, words);
                 len = 0;
                 continue;
+                }
+            words[len] = c;
+            len++;
+        }
+    }
+    fclose(infp);
+    return 0;
+
+}
