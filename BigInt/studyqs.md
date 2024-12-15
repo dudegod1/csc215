@@ -13,3 +13,8 @@
     - Modify the `BigInt` class to store and operate on floating-point values.
     - Change the calculator’s logic to handle floating-point arithmetic.
 
+4. **How can a "Clear" command (`C`) be added to the calculator?**
+    - Create a new function which is called when C is typed which would take where the current value is and set it to zero.
+
+5. **How could the calculator be modified to support parentheses?**
+    - Use an `if` statement to identify when parentheses are encountered in the input.
