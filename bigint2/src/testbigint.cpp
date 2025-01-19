@@ -17,3 +17,54 @@ TEST_CASE("Test can create and render BigInts") {
     CHECK(bi5.to_string() == "-923456789012345678901234567890");
 }
 
+TEST_CASE("Test can compare BigInts for equality") {
+    BigInt i1("12345");
+    BigInt i2("54321");
+    BigInt i3("123456");
+    BigInt i4("-654321");
+    BigInt i5("54321");
+    BigInt i6("-54321");
+    CHECK((i2 == i5) == true);
+    CHECK((i1 == i2) == false);
+    CHECK((i1 == i3) == false);
+    CHECK((i2 == i6) == false);
+}
+
+TEST_CASE("Test can compare BigInts for inequality") {
+    BigInt i1("12345");
+    BigInt i2("54321");
+    BigInt i3("123456");
+    BigInt i4("-654321");
+    BigInt i5("54321");
+    BigInt i6("-54321");
+    CHECK((i2 > i5) == false);
+    CHECK((i2 > i1) == true);
+    CHECK((i4 > i1) == false);
+    CHECK((i6 > i4) == true);
+}
+
+TEST_CASE("Test can compare BigInts with !=, <=, <, and <=") {
+    BigInt i1("12345");
+    BigInt i2("54321");
+    BigInt i3("123456");
+    BigInt i4("-654321");
+    BigInt i5("54321");
+    BigInt i6("-54321");
+    CHECK((i4 != i1) == true);
+    CHECK((i2 <= i5) == true);
+    CHECK((i2 < i1) == false);
+    CHECK((i6 >= i4) == true);
+}
+
+TEST_CASE("Test helper function to add BigInts with same number of digits") {
+    BigInt i1("123");
+    BigInt i2("321");
+    BigInt i3("222");
+    BigInt i4("888");
+    BigInt i5("119");
+    CHECK((i1.sum_common_digits(i2)).to_string() == "444");
+    CHECK((i1.sum_common_digits(i1)).to_string() == "246");
+    CHECK((i1.sum_common_digits(i3)).to_string() == "345");
+    CHECK((i1.sum_common_digits(i5)).to_string() == "242");
+    CHECK((i1.sum_common_digits(i4)).to_string() == "1011");
+}
