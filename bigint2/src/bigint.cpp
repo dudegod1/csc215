@@ -61,7 +61,7 @@ bool BigInt::operator!=(const BigInt& i2) const {
     return !(*this == i2);
 }
 
-// comparison greater than or equal to
+// comparison greater than equal to
 bool BigInt::operator>=(const BigInt& i2) const {
     return !(*this < i2);
 }
@@ -74,7 +74,12 @@ bool BigInt::operator<(const BigInt& i2) const{
     if(digits.size() > i2.digits.size()) return negative ? true : false;
     if(digits.size() < i2.digits.size()) return negative ? false : true;
     for (int i = 0; i < digits.size(); i++){
-        if (digits[i] > b2.digits[i]) return negative ? true : false;
+        if (digits[i] > i2.digits[i]) return negative ? true : false;
     }
     return false;
 }
+//comparison less than equal to
+bool BigInt::operator<=(const BigInt& other) const {
+    return !(*this > other);
+}
+
