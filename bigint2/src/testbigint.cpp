@@ -56,15 +56,59 @@ TEST_CASE("Test can compare BigInts with !=, <=, <, and <=") {
     CHECK((i6 >= i4) == true);
 }
 
-TEST_CASE("Test helper function to add BigInts with same number of digits") {
+TEST_CASE("Test can add BigInts") {
     BigInt i1("123");
     BigInt i2("321");
-    BigInt i3("222");
-    BigInt i4("888");
-    BigInt i5("119");
-    CHECK((i1.sum_common_digits(i2)).to_string() == "444");
-    CHECK((i1.sum_common_digits(i1)).to_string() == "246");
-    CHECK((i1.sum_common_digits(i3)).to_string() == "345");
-    CHECK((i1.sum_common_digits(i5)).to_string() == "242");
-    CHECK((i1.sum_common_digits(i4)).to_string() == "1011");
+    BigInt i3("43210");
+    BigInt i4("9999");
+    BigInt i5("1");
+    BigInt i6("-9999");
+    BigInt i7("765432");
+    BigInt i8("87654321");
+
+    CHECK((i1 + i2).to_string() == "444");
+    CHECK((i1 + i3).to_string() == "43333");
+    CHECK((i4 + i5).to_string() == "10000");
+    CHECK((i7 + i8).to_string() == "88419753");
 }
+
+TEST_CASE("NEGATION TESTING") {
+    BigInt b1("52");
+    BigInt b2 = -b1;
+    BigInt b3("765");
+    BigInt b4("-765");
+
+    CHECK(b2.to_string() == "-52");
+    CHECK((-b2).to_string() == "52");
+    CHECK((-b3).to_string() == "-765");
+    CHECK((-b4).to_string() == "765");
+}
+
+TEST_CASE("SUBTRACTION TESTING") {
+    BigInt b1("1600");
+    BigInt b2("1500");
+    BigInt b3("654321");
+    BigInt b4("65");
+    BigInt b5("9999");
+    BigInt b6("8888");
+
+    CHECK((b1 - b2).to_string() == "100");
+    CHECK((b3 - b4).to_string() == "654256");
+    CHECK((b5 - b6).to_string() == "1111");
+}
+
+TEST_CASE("MULTIPLICATION TESTING") {
+    BigInt b1("12");
+    BigInt b2("34");
+    BigInt b3("-56");
+    BigInt b4("999");
+    BigInt b5("-999");
+
+    CHECK((b1 * b2).to_string() == "408");
+    CHECK((b2 * b3).to_string() == "-1904");
+    CHECK((b1 * b3).to_string() == "-672");
+    CHECK((b4 * b5).to_string() == "-998001");
+    CHECK((b4 * b4).to_string() == "998001");
+}
+
+
