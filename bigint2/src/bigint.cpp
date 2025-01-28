@@ -91,10 +91,18 @@ BigInt BigInt::operator*(const BigInt& i2) const{
 
     for (int i =this->digits.size() -1; i>=0; i--){
         int c = 0;
-        for (int j = b2.digits.size() -1; j >=0; j--){
-            int prod = (this->digits[i] - '0') * (b2.digits[j]-'0') + (r[i+j+1]-'0') + c;
+        for (int j = i2.digits.size() -1; j >=0; j--){
+            int prod = (this->digits[i] - '0') * (i2.digits[j]-'0') + (r[i+j+1]-'0') + c;
             c = prod/10;
             r[i+j+1] = (prod%10) + '0';
         }
         r[i] += c;
     }
+    size_t starting_position = r.find_first_not_of('0');
+    if (starting_position != string::npos) r = r.substr(starting_position);
+    else r = "0";
+
+    if (neg_result && r != "0") r.insert(r.begin(), '-');
+    return BigInt(r);
+
+}
