@@ -25,3 +25,14 @@ string BigInt::to_string() const
 {
     return (!negative) ? digits : "-" + digits;
 }
+//comparison ==
+bool BigInt::operator==(const BigInt& i2) const{
+    if (digits.size() != i2.digits.size()) return false; //simple command which returns false when teh size is different
+    if (negative != i2.negative) return false;
+    for(int i = 0; i < digits.size(); i++){
+        if(digits[i] != i2.digits[i]){
+            return false;
+        }
+    }
+    return true;
+}
