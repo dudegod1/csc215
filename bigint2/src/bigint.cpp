@@ -70,3 +70,11 @@ bool BigInt::operator>=(const BigInt& i2) const {
 bool BigInt::operator<(const BigInt& i2) const{
     if(!negative && i2.negative) return false;
     if(negative &&!i2.negative) return true;
+
+    if(digits.size() > i2.digits.size()) return negative ? true : false;
+    if(digits.size() < i2.digits.size()) return negative ? false : true;
+    for (int i = 0; i < digits.size(); i++){
+        if (digits[i] > b2.digits[i]) return negative ? true : false;
+    }
+    return false;
+}
