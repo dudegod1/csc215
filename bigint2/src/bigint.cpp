@@ -36,3 +36,8 @@ bool BigInt::operator==(const BigInt& i2) const{
     }
     return true;
 }
+
+bool BigInt::operator>(const BigInt& i2) const{
+    if(!negative && i2.negative) return true; //positive > negative
+    if(negative && !i2.negative) return false; // negative < positive
+
