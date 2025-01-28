@@ -83,3 +83,8 @@ bool BigInt::operator<=(const BigInt& other) const {
     return !(*this > other);
 }
 
+//mutliplication
+BigInt BigInt::operator*(const BigInt& i2) const{
+
+    bool neg_result = this->negative != i2.negative;
+    string r(this->digits.size() + i2.digits.size(), '0');
