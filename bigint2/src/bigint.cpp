@@ -36,8 +36,14 @@ bool BigInt::operator==(const BigInt& i2) const{
     }
     return true;
 }
-
+//comparison greater than
 bool BigInt::operator>(const BigInt& i2) const{
-    if(!negative && i2.negative) return true; //positive > negative
-    if(negative && !i2.negative) return false; // negative < positive
-
+    if(!negative && i2.negative) return true; 
+    if(negative && !i2.negative) return false;
+    
+     if (digits.size() < b2.digits.size()) {
+        return negative ? true : false;
+    }
+   if(digits.size() > b2.digits.size()){
+        return negative ? false : true;
+    }        
