@@ -60,3 +60,8 @@ bool BigInt::operator>(const BigInt& i2) const{
 bool BigInt::operator!=(const BigInt& i2) const {
     return !(*this == i2);
 }
+
+// comparison greater than or equal to
+bool BigInt::operator>=(const BigInt& i2) const {
+    return !(*this < i2);
+}
