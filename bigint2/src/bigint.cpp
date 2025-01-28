@@ -106,3 +106,44 @@ BigInt BigInt::operator*(const BigInt& i2) const{
     return BigInt(r);
 
 }
+
+//addition
+BigInt BigInt::operator+(const BigInt& i) const {
+    if (negative != i.negative) {
+        return *this + BigInt(i.negative ? i.digits : "-" + i.digits);
+    }
+
+    bool resultNegative = false;
+    string a = digits, b = i.digits;
+
+    if (*this > i) {
+        swap(a, b);
+        resultNegative = !negative;
+    } else {
+        resultNegative = negative;
+    }
+
+
+   string result = "";
+   string a = digits;
+   string b = i.digits;
+
+
+   int carry = 0;
+   int i = a.size() - 1, j = b.size() - 1;
+
+
+   while (i >= 0 || j >= 0 || carry) {
+       int digitA = (i >= 0) ? a[i--] - '0' : 0;
+       int digitB = (j >= 0) ? b[j--] - '0' : 0;
+
+
+       int sum = digitA + digitB + carry;
+       carry = sum / 10;
+       result.insert(result.begin(), (sum % 10) + '0');
+   }
+
+
+   return BigInt(result);
+}
+
