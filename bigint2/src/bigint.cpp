@@ -41,9 +41,17 @@ bool BigInt::operator>(const BigInt& i2) const{
     if(!negative && i2.negative) return true; 
     if(negative && !i2.negative) return false;
     
-     if (digits.size() < b2.digits.size()) {
+     if (digits.size() < i2.digits.size()) {
         return negative ? true : false;
     }
-   if(digits.size() > b2.digits.size()){
+   if(digits.size() > i2.digits.size()){
         return negative ? false : true;
-    }        
+    }
+    
+    for(int i = 0; i < digits.size(); i++){
+        if (digits[i] > i2.digits[i]){
+            return negative ? false : true; 
+        }
+    } 
+    return false;
+}   
