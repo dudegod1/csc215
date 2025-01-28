@@ -54,4 +54,9 @@ bool BigInt::operator>(const BigInt& i2) const{
         }
     } 
     return false;
-}   
+}
+
+// not equal
+bool BigInt::operator!=(const BigInt& i2) const {
+    return !(*this == i2);
+}
