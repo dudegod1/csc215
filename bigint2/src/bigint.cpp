@@ -88,3 +88,13 @@ BigInt BigInt::operator*(const BigInt& i2) const{
 
     bool neg_result = this->negative != i2.negative;
     string r(this->digits.size() + i2.digits.size(), '0');
+
+    for (int i =this->digits.size() -1; i>=0; i--){
+        int c = 0;
+        for (int j = b2.digits.size() -1; j >=0; j--){
+            int prod = (this->digits[i] - '0') * (b2.digits[j]-'0') + (r[i+j+1]-'0') + c;
+            c = prod/10;
+            r[i+j+1] = (prod%10) + '0';
+        }
+        r[i] += c;
+    }
