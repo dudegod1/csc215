@@ -146,4 +146,43 @@ BigInt BigInt::operator+(const BigInt& i) const {
 
    return BigInt(result);
 }
+//subtraction
+BigInt BigInt::operator-(const BigInt& i) const {
+    if (negative != i.negative) {
+        return *this + BigInt(i.negative ? i.digits : "-" + i.digits);
+    }
+
+    bool resultNegative = false;
+    string a = digits, b = i.digits;
+
+    if (*this < other) {
+        swap(a, b);
+        resultNegative = !negative;
+    } else {
+        resultNegative = negative;
+    }
+
+    string result = "";
+    int borrow = 0, i = a.size() - 1, j = b.size() - 1;
+
+    while (i >= 0 || j >= 0) {
+        int digitA = (i >= 0) ? a[i--] - '0' : 0;
+        int digitB = (j >= 0) ? b[j--] - '0' : 0;
+
+        int diff = digitA - digitB - borrow;
+        if (diff < 0) {
+            diff += 10;
+            borrow = 1;
+        } else {
+            borrow = 0;
+        }
+        result.insert(result.begin(), diff + '0');
+    }
+
+    while (result.size() > 1 && result.front() == '0') {
+        result.erase(result.begin());
+    }
+
+    return BigInt(resultNegative ? "-" + result : result);
+}
 
